@@ -1,5 +1,66 @@
-# Jupyter
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ===== Jupyter Notebook =====
 .ipynb_checkpoints/
 */.ipynb_checkpoints/*
+
+# ===== Virtual environments =====
+venv/
+env/
+ENV/
+.venv/
+
+# ===== Spark =====
+metastore_db/
+derby.log
+spark-warehouse/
+*.crc
+_SUCCESS
+
+# ===== Data (raw & processed) =====
+# Raw and processed data files are large / regenerable from the pipeline notebooks.
+# Keep folder structure tracked, but ignore actual data content.
+data/raw/**
+data/processed/**
+data/database/**
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/database/.gitkeep
+
+# ===== Database files =====
+*.db
+*.sqlite
+*.sqlite3
+
+# ===== Large exported files =====
 *.csv
+*.parquet
 *.xml
+!data/**/*.gitkeep
+
+# ===== API keys / secrets =====
+.env
+*api_key*
+secrets.py
+config_secret.py
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+
+# ===== IDE =====
+.vscode/
+.idea/
+
+# ===== Logs =====
+*.log
+logs/
