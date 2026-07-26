@@ -29,8 +29,19 @@ _SUCCESS
 # ===== Data (raw & processed) =====
 # Raw data and large intermediate files are excluded (regenerable via notebooks 01-07).
 # Small, genuinely useful outputs (dashboard data, DB, saved models) ARE tracked.
-data/raw/**
-!data/raw/.gitkeep
+# Ignore everything under data/raw
+data/raw/*
+
+# But keep the location folder itself
+!data/raw/location/
+!data/raw/location/.gitkeep
+
+# Ignore XML files inside location
+data/raw/location/*.xml
+
+# Ignore Jupyter checkpoints
+data/raw/location/.ipynb_checkpoints/
+
 
 data/processed/combined_raw_dataset.csv/**
 data/processed/cleaned_dataset.csv/**
