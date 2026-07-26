@@ -27,25 +27,29 @@ spark-warehouse/
 _SUCCESS
 
 # ===== Data (raw & processed) =====
-# Raw and processed data files are large / regenerable from the pipeline notebooks.
-# Keep folder structure tracked, but ignore actual data content.
+# Raw data and large intermediate files are excluded (regenerable via notebooks 01-07).
+# Small, genuinely useful outputs (dashboard data, DB, saved models) ARE tracked.
 data/raw/**
-data/processed/**
-data/database/**
 !data/raw/.gitkeep
-!data/processed/.gitkeep
-!data/database/.gitkeep
+
+data/processed/combined_raw_dataset.csv/**
+data/processed/cleaned_dataset.csv/**
+data/processed/cleaned_dataset_single.csv
+data/processed/cleaned_dataset_final.csv
+data/processed/features_dataset.parquet/**
+data/processed/dashboard_data.csv/**
+# dashboard_data_final.csv (74MB) is intentionally NOT ignored - tracked so the
+# dashboard is runnable without regenerating the full pipeline.
 
 # ===== Database files =====
-*.db
-*.sqlite
-*.sqlite3
+# bus_clustering.db is small enough to track - remove these two lines if you
+# want to exclude it instead.
+# *.db
+# *.sqlite
 
-# ===== Large exported files =====
-*.csv
+# ===== Large exported files (general) =====
 *.parquet
-*.xml
-!data/**/*.gitkeep
+
 
 # ===== API keys / secrets =====
 .env
