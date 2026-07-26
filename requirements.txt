@@ -1,0 +1,20 @@
+# Core big data processing
+pyspark>=4.0
+
+# Notebook environment
+jupyterlab>=4.0
+notebook>=7.0
+
+# Data manipulation
+pandas>=2.0
+numpy>=1.24
+
+# Visualization (EDA notebook)
+matplotlib>=3.8
+seaborn>=0.13
+
+# Machine learning (DBSCAN comparison model - Spark MLlib has no native DBSCAN)
+scikit-learn>=1.4
+
+# Optional: faster Parquet I/O for pandas (not required, Spark handles Parquet natively)
+# pyarrow>=15.0
